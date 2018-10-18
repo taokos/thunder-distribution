@@ -68,6 +68,7 @@ install:
   - metatag_twitter_cards
   - paragraphs
   - paragraphs_features
+  - paragraphs_paste
   - pathauto
   - redirect
   - scheduler
