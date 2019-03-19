@@ -6,8 +6,25 @@
 install_thunder() {
     cd $1
 
-    /usr/bin/env PHP_OPTIONS="-d sendmail_path=`which true`" drush si thunder --db-url=mysql://thunder:thunder@127.0.0.1/drupal -y thunder_module_configure_form.install_modules_thunder_demo
+    /usr/bin/env PHP_OPTIONS="-d sendmail_path=`which true`" drush si thunder --db-url=mysql://travis@127.0.0.1/drupal -y thunder_module_configure_form.install_modules_thunder_demo
     drush en simpletest -y
+
+    if [[ "${TEST_DEPLOYMENT}" == "true" ]]; then
+        drush -y sql-dump --result-file=${DEPLOYMENT_DUMP_FILE}
+    fi
+}
+
+# Mock update process for deployment workflow
+update_thunder_mock_deployment() {
+    # Enable optional modules
+    drush -y en password_policy
+
+    drush -y cex sync
+    drush -y sql-drop
+    drush -y sql-cli < ${DEPLOYMENT_DUMP_FILE}
+    drush cr
+    drush -y updatedb
+    drush -y cim sync
 }
 
 # Update thunder to current test version
@@ -19,7 +36,12 @@ update_thunder() {
     cd ${TEST_DIR}/docroot
 
     # Execute all required updates
+    drush cr
     drush updatedb -y
+
+    if [[ "${TEST_DEPLOYMENT}" == "true" ]]; then
+        update_thunder_mock_deployment
+    fi
 }
 
 drush_make_thunder() {
@@ -38,6 +60,7 @@ drush_make_thunder() {
     git clone --depth 1 --single-branch --branch 8.x-2.x https://git.drupal.org/project/thunder_admin.git ${TEST_DIR}/docroot/profiles/thunder/themes/thunder_admin
 
     composer install --working-dir=${TEST_DIR}/docroot
+    composer run-script drupal-phpunit-upgrade --working-dir=${TEST_DIR}/docroot
 }
 
 composer_create_thunder() {
@@ -51,7 +74,7 @@ composer_create_thunder() {
     fi
 
     composer config repositories.thunder path ${THUNDER_DIST_DIR}
-    composer require "burdamagazinorg/thunder:*" "drupal/thunder_admin:dev-2.x" --no-progress
+    composer require "burdamagazinorg/thunder:*" "drupal/thunder_admin:dev-2.x" "mglaman/phpstan-drupal" "phpstan/phpstan-deprecation-rules" --no-progress
 }
 
 apply_patches() {
@@ -75,6 +98,14 @@ if [[ ${INSTALL_METHOD} == "drush_make" ]]; then
     drush_make_thunder
 elif [[ ${INSTALL_METHOD} == "composer" ]]; then
     composer_create_thunder
+
+    # Check for deprecated methods.
+    cp ${THUNDER_DIST_DIR}/phpstan.neon.dist phpstan.neon
+    if [[ ${TEST_UPDATE} == "true" ]]; then
+        phpstan analyse --memory-limit 300M ${TEST_DIR}/docroot/profiles/thunder
+    else
+        phpstan analyse --memory-limit 300M ${TEST_DIR}/docroot/profiles/contrib/thunder
+    fi
 fi
 
 # Install Thunder

@@ -20,8 +20,8 @@
             "email": "volker.killesreiter@burda.com"
         },
         {
-            "name": "Timo Welde",
-            "email": "welde@galaniprojects.de"
+            "name": "Alex Pott",
+            "email": "alex.a.pott@gmail.com"
         }
     ],
     "minimum-stability": "dev",
@@ -63,7 +63,7 @@
                 "Back button for comparison page": "https://www.drupal.org/files/issues/back_button_for-2853193-4.patch"
             },
             "drupal/paragraphs": {
-                "Support of add above functionality in Thunder": "https://www.drupal.org/files/issues/2018-06-05/2977454_2.patch"
+                "Support of add above functionality in Thunder": "https://www.drupal.org/files/issues/2018-09-28/2977454_7.patch"
             },
             "drupal/amp": {
                 "Missing schema": "https://www.drupal.org/files/issues/missing_schema_for-2878769-3.patch"
@@ -72,7 +72,11 @@
                 "Provide inline entity form FieldWidgetDisplay": "https://www.drupal.org/files/issues/2858438_6.patch"
             },
             "drupal/scheduler": {
-                "Scheduler integration with core Content moderation": "https://www.drupal.org/files/issues/2018-08-02/2798689-102.patch"
+                "Deny edit access to scheduled content for unprivileged users": "https://www.drupal.org/files/issues/2018-12-18/3020250-8.patch"
+            },
+            "drupal/password_policy": {
+                "Policies should declare a config dependency on the plugin modules": "https://www.drupal.org/files/issues/2018-10-09/2918974-2.patch",
+                "Importing configuration on site without password_policy activated": "https://www.drupal.org/files/issues/2018-07-30/password_policy-config_import_field_error-2771129-57.patch"
             }
         }
     },
@@ -102,7 +106,7 @@
         "drupal/dropzonejs": "^1.0",
         "drupal/empty_fields": "^1.0",
         "drupal/entity": "^1.0",
-        "drupal/entity_browser": "1.6",
+        "drupal/entity_browser": "1.7",
         "drupal/entity_reference_revisions": "^1.0",
         "drupal/fb_instant_articles": "dev-1.x",
         "drupal/field_group": "^1.0",
@@ -123,13 +127,15 @@
         "drupal/media_expire": "^1.0",
         "drupal/nexx_integration": "^1.0||^2.0",
         "drupal/metatag": "^1.0",
-        "drupal/paragraphs": "1.3",
+        "drupal/paragraphs": "1.6",
         "drupal/paragraphs_features": "^1.0",
+        "drupal/password_policy": "3.x-dev",
         "drupal/pathauto": "^1.0",
         "drupal/responsive_preview": "^1.0",
         "drupal/redirect": "^1.0",
         "drupal/riddle_marketplace": "^2.0",
         "drupal/scheduler": "1.0",
+        "drupal/scheduler_content_moderation_integration": "~1.0",
         "drupal/select2": "^1.0",
         "drupal/simple_sitemap": "^2.0",
         "drupal/shariff": "^1.0",
@@ -159,6 +165,11 @@
     },
     "require-dev": {
         "burdamagazinorg/thunder-dev-tools": "dev-master",
-        "behat/mink-selenium2-driver": "dev-master"
+        "drupal/config_profile": "^1.0",
+        "mglaman/phpstan-drupal": "^0.11.1",
+        "phpstan/phpstan-deprecation-rules": "^0.11.0"
+    },
+    "conflict": {
+        "masterminds/html5": "^2.4.0"
     }
 }
