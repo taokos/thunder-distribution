@@ -62,9 +62,6 @@
             "drupal/diff": {
                 "Back button for comparison page": "https://www.drupal.org/files/issues/back_button_for-2853193-4.patch"
             },
-            "drupal/paragraphs": {
-                "Support of add above functionality in Thunder": "https://www.drupal.org/files/issues/2018-09-28/2977454_7.patch"
-            },
             "drupal/amp": {
                 "Missing schema": "https://www.drupal.org/files/issues/missing_schema_for-2878769-3.patch"
             },
