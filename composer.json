@@ -68,6 +68,9 @@
             "drupal/password_policy": {
                 "Policies should declare a config dependency on the plugin modules": "https://www.drupal.org/files/issues/2018-10-09/2918974-2.patch",
                 "Importing configuration on site without password_policy activated": "https://www.drupal.org/files/issues/2019-05-20/password_policy-config_import_field_error-2771129-80.patch"
+            },
+            "drupal/paragraphs": {
+                "TypeError: Argument 2 passed to Drupal must implement interface FieldDefinitionInterface": "https://www.drupal.org/files/issues/2018-11-01/paragraphs-remove_update_hook-3007596-8.patch"
             }
         }
     },
