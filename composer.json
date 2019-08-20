@@ -71,6 +71,9 @@
             },
             "drupal/paragraphs": {
                 "TypeError: Argument 2 passed to Drupal must implement interface FieldDefinitionInterface": "https://www.drupal.org/files/issues/2018-11-01/paragraphs-remove_update_hook-3007596-8.patch"
+            },
+            "drupal/entity_browser": {
+                "Provide inline entity form FieldWidgetDisplay": "https://www.drupal.org/files/issues/2019-07-23/2858438-26.patch"
             }
         }
     },
