@@ -1,5 +1,50 @@
 # Change Log
 
+## [8.2.52](https://github.com/BurdaMagazinOrg/thunder-distribution/tree/8.2.52) 2019-12-19
+[Full Changelog](https://github.com/BurdaMagazinOrg/thunder-distribution/compare/8.2.51...8.2.52)
+
+This release updates the Drupal version to 8.7.11, which is a security update.
+
+Additional changes:
+
+- Do [Fix deprecations and coding style issues](https://www.drupal.org/node/3100288)
+
+## [8.2.51](https://github.com/BurdaMagazinOrg/thunder-distribution/tree/8.2.51) 2019-11-26
+[Full Changelog](https://github.com/BurdaMagazinOrg/thunder-distribution/compare/8.2.50...8.2.51)
+
+Bugfix release.
+
+- Fix [Follow-up for "Fix field_group update": Check if field groups exists](https://www.drupal.org/node/3087938)
+
+## [8.2.50](https://github.com/BurdaMagazinOrg/thunder-distribution/tree/8.2.50) 2019-11-06
+[Full Changelog](https://github.com/BurdaMagazinOrg/thunder-distribution/compare/8.2.49...8.2.50)
+
+Maintenance release with updated dependencies.
+
+Main changes:
+
+- Fix [Increase minimum required focal point version](https://www.drupal.org/node/3083350)
+- Do [Update entity_browser to 8.x-1.8](https://www.drupal.org/node/3065999)
+- Do [Update scheduler and scmi](https://www.drupal.org/node/3077867)
+- Do [Remove scheduler patch](https://www.drupal.org/node/3083312)
+
+## [8.2.49](https://github.com/BurdaMagazinOrg/thunder-distribution/tree/8.2.49) 2019-08-28
+[Full Changelog](https://github.com/BurdaMagazinOrg/thunder-distribution/compare/8.2.48...8.2.49)
+
+Fixes update problems with the field group module.
+
+- Fix [field_group update](https://www.drupal.org/project/thunder/issues/3077672)
+
+## [8.2.48](https://github.com/BurdaMagazinOrg/thunder-distribution/tree/8.2.48) 2019-08-26
+[Full Changelog](https://github.com/BurdaMagazinOrg/thunder-distribution/compare/8.2.47...8.2.48)
+
+The release updates the paragraphs modules to version 1.9 and the field groups module to version 3.0-rc1
+
+- Do [Consider upgrading field_group module](https://www.drupal.org/node/3059646)
+- Do [Update to Paragraphs 1.9](https://www.drupal.org/node/3042078)
+- Do [Remove deprecated code for checklist api integration](https://www.drupal.org/node/3040952)
+- Fix [Occasionally failing tests for paragraphs text split](https://www.drupal.org/node/3073791)
+
 ## [8.2.47](https://github.com/BurdaMagazinOrg/thunder-distribution/tree/8.2.47) 2019-08-08
 [Full Changelog](https://github.com/BurdaMagazinOrg/thunder-distribution/compare/8.2.46...8.2.47)
 
