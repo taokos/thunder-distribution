@@ -74,6 +74,9 @@
             },
             "drupal/entity_browser": {
                 "Provide inline entity form plugin": "https://www.drupal.org/files/issues/2019-07-04/2858438_19.patch"
+            },
+            "drupal/field_group": {
+                "Undefined property: stdClass::$region": "https://www.drupal.org/files/issues/2019-10-09/field_group.patch"
             }
         }
     },
